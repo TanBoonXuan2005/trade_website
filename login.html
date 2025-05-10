@@ -87,17 +87,6 @@
         <div class="form-container">
             <h1 class="mb-4">Login</h1>
 
-            <!-- Flash messages -->
-            {% with messages = get_flashed_messages(with_categories=true) %}
-              {% if messages %}
-                <div>
-                  {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">{{ message }}</div>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            {% endwith %}
-
             <!-- Login Form -->
             <form method="POST" action="/login" class="mb-4">
                 <div class="input-group mb-3">
