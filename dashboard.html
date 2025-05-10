@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Enhanced Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?abstract,pattern') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Overlay effect */
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .dashDiv {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 25px;
+            margin: 50px auto;
+            border-radius: 20px;
+            max-width: 650px;
+        }
+        .dashDiv p {
+            font-size: 1.5em;
+            color: #444;
+            font-weight: 600;
+        }
+        .dashDiv a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.3em;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .dashDiv a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.8), 0 0 20px rgba(0, 242, 254, 0.8);
+            transform: scale(1.1);
+        }
+        .logout-btn {
+            text-align: center;
+        }
+        .btn-custom {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            border: none;
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-custom:hover {
+            background: linear-gradient(45deg, #ff8e53, #ff6b6b);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container mt-5">
+        <!-- Display the username dynamically -->
+        <h1 class="text-center mb-4">Welcome, <span style="color: #ff8e53;">{{ username }}</span>!</h1>
+        <div class="dashDiv">
+            <p>Here is the Dashboard List. Please select which category you want:</p>
+            <a href="{{ url_for('broker') }}">📄 Broker Download</a>
+            <a href="{{ url_for('tutorial') }}">🎥 Tutorial Video</a>
+            <a href="https://www.tradingview.com/desktop/">📊 Trading View</a>
+            <a href="https://www.forexfactory.com">📰 Forex Factory (News)</a>
+            <a href="https://www.metatrader5.com/en/download">💻 MT5 Download</a>
+            <a href="https://wa.me/+601131851468">📞 Contact for More Information</a>
+        </div>
+        <!-- Logout button -->
+        <div class="logout-btn mt-4">
+            <a href="{{ url_for('logout') }}" class="btn btn-custom">Logout</a>
+        </div>
+    </div>
+    <!-- Optional: Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
